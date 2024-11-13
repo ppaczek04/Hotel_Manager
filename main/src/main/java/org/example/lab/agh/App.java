@@ -29,7 +29,7 @@ public class App {
 
             System.out.print("Choose the command {prices, view, exit}: ");
             String userChoice = mainScanner.nextLine().trim().toLowerCase();
-            Command chosenCommand= commandFactory.getCommand(userChoice, ourHotel);
+            Command chosenCommand= commandFactory.getCommand(userChoice, ourHotel, mainScanner);
             chosenCommand.execute();
             if (chosenCommand instanceof ExitCommand) {break;}
 

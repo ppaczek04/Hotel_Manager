@@ -86,6 +86,14 @@
             <version>1.0</version>
         </dependency>
 
+        <!-- Mockito dependency - dynamic agent loading form Mockito possible in java 17 and 21-->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>5.5.0</version> <!-- Najnowsza wersja na dzień dzisiejszy -->
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
 </project>

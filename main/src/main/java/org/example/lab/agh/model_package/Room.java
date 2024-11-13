@@ -30,6 +30,19 @@ public class Room {
         this.checkoutDate = null;
     }
 
+    public void displayInfo(){
+        System.out.printf("** Room %d | %.2f $ per night | max Guests: %d ** ", roomNumber, pricePerNight, maxGuestNumber);
+        if(roomRegisteredGuests.isEmpty()){
+            System.out.println("Room AVAILABLE");
+        }
+        else{
+            System.out.println("Room is occupied  till " + checkoutDate.toString() + " by: ");
+            for(Guest guest : roomRegisteredGuests){
+                System.out.println(guest.toString());
+            }
+        }
+    }
+
     public int getRoomNumber() {
         return roomNumber;
     }
