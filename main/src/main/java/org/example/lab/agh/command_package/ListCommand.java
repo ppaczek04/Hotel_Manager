@@ -1,5 +1,7 @@
 package org.example.lab.agh.command_package;
 
-public class ListCommand {
-    public int command_nr;
+public class ListCommand implements Command{
+    public void execute(){
+        System.out.println("List command executed");
+    }
 }
