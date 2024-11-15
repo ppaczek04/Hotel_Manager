@@ -13,7 +13,7 @@ public class CommandFactory {
             case "view":
                 return new ViewCommand(hotel, mainScanner);
             case "checkin":
-                return new CheckinCommand(hotel);
+                return new CheckinCommand(hotel, mainScanner);
             case "checkout":
                 return new CheckoutCommand(hotel);
             case "list":

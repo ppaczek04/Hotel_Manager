@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Room {
-    private int roomNumber;
-    private double pricePerNight;
-    private int maxGuestNumber;
+    private final int roomNumber;
+    private final double pricePerNight;
+    private final int maxGuestNumber;
     private List<Guest> roomRegisteredGuests;
     private LocalDate checkinDate;
     private LocalDate checkoutDate;
@@ -42,29 +42,20 @@ public class Room {
             }
         }
     }
+    public void guestCheckin(Guest guest){
+        roomRegisteredGuests.add(guest);
+    }
 
     public int getRoomNumber() {
         return roomNumber;
-    }
-
-    public void setRoomNumber(int roomNumber) {
-        this.roomNumber = roomNumber;
     }
 
     public double getPricePerNight() {
         return pricePerNight;
     }
 
-    public void setPricePerNight(double pricePerNight) {
-        this.pricePerNight = pricePerNight;
-    }
-
     public int getMaxGuestNumber() {
         return maxGuestNumber;
-    }
-
-    public void setMaxGuestNumber(int maxGuestNumber) {
-        this.maxGuestNumber = maxGuestNumber;
     }
 
     public List<Guest> getRoomRegisteredGuests() {
