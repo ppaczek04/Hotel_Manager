@@ -15,13 +15,13 @@ public class ViewCommand implements Command{
         this.tempScanner = scanner;
     }
     public void execute(){
-        System.out.println("Podaj nr pokoju, ktory cie interesuje: ");
+        System.out.println("Choose the room that interests you: ");
         int userChoice = tempScanner.nextInt();
         tempScanner.nextLine();  // Czyści znak nowej linii Enter po nextInt()
         Map<Integer, Room> tempMap = tempHotel.getRoomsMap();
 
         if(!tempMap.contains(userChoice)){
-            System.out.println("Nie ma pokoju o takim numerze.");
+            System.out.println("There is no such room.");
         }
         else{
             Room tempRoom = tempMap.get(userChoice);

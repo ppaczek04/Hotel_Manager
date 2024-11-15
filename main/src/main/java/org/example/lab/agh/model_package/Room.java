@@ -36,7 +36,7 @@ public class Room {
             System.out.println("Room AVAILABLE");
         }
         else{
-            System.out.println("Room is occupied  till " + checkoutDate.toString() + " by: ");
+            System.out.printf("Room is occupied  till " + checkoutDate.toString() + " by: %n");
             for(Guest guest : roomRegisteredGuests){
                 System.out.println(guest.toString());
             }

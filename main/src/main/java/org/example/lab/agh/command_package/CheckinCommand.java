@@ -5,6 +5,7 @@ import org.example.lab.agh.model_package.Hotel;
 import org.example.lab.agh.model_package.Room;
 
 import java.sql.SQLOutput;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class CheckinCommand implements Command{
@@ -31,7 +32,7 @@ public class CheckinCommand implements Command{
                     tempScanner.nextLine();  // Czyści znak nowej linii Enter po nextInt()
                     if(howManyGuests <= chosenRoom.getMaxGuestNumber()){
                         for(int i = 1; i <= howManyGuests; i++){
-                            System.out.printf("Please register %d. guest >>", i);
+                            System.out.printf("Please register %d. guest >> %n", i);
                             System.out.println("Name: ");
                             String name = tempScanner.nextLine();
                             System.out.println("Surname: ");
@@ -40,13 +41,18 @@ public class CheckinCommand implements Command{
                             int PESEL = tempScanner.nextInt();
                             tempScanner.nextLine();  // Czyści znak nowej linii Enter po nextInt()
                             chosenRoom.guestCheckin(new Guest(PESEL, name, surname));
-                            System.out.println("Please ");
                         }
+                        System.out.printf("Checkin date is set to %s %n", LocalDate.now());
+                        chosenRoom.setCheckinDate(LocalDate.now());
+                        System.out.print("Please set te checkout date: ");
+                        String checkoutDateString = tempScanner.nextLine().trim();
+                        LocalDate checkoutDate = LocalDate.parse(checkoutDateString);
+                        chosenRoom.setCheckoutDate(checkoutDate);
+                        break;
                     }
                     else{
                         System.out.print("Sorry, this room is not big enough for that many people, please choose different one: ");
                     }
-                    break;
                 }
                 else{
                     System.out.print("Chosen room is currently occupied, please choose different one: ");
