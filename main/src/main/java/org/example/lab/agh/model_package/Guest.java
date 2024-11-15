@@ -11,6 +11,7 @@ public class Guest {
         this.surname = surname;
     }
 
+
     @Override
     public String toString() {
         return name + " " + surname;

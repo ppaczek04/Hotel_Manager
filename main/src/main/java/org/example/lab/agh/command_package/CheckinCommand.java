@@ -33,18 +33,11 @@ public class CheckinCommand implements Command{
                     if(howManyGuests <= chosenRoom.getMaxGuestNumber()){
                         for(int i = 1; i <= howManyGuests; i++){
                             System.out.printf("Please register %d. guest >> %n", i);
-                            System.out.println("Name: ");
-                            String name = tempScanner.nextLine();
-                            System.out.println("Surname: ");
-                            String surname = tempScanner.nextLine();
-                            System.out.println("PESEL: ");
-                            int PESEL = tempScanner.nextInt();
-                            tempScanner.nextLine();  // Czyści znak nowej linii Enter po nextInt()
-                            chosenRoom.guestCheckin(new Guest(PESEL, name, surname));
+                            chosenRoom.registerGuest(tempScanner);
                         }
                         System.out.printf("Checkin date is set to %s %n", LocalDate.now());
                         chosenRoom.setCheckinDate(LocalDate.now());
-                        System.out.print("Please set te checkout date: ");
+                        System.out.print("Please set te checkout date (YYYY-MM-DD): ");
                         String checkoutDateString = tempScanner.nextLine().trim();
                         LocalDate checkoutDate = LocalDate.parse(checkoutDateString);
                         chosenRoom.setCheckoutDate(checkoutDate);
