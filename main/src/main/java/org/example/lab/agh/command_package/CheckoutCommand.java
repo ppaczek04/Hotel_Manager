@@ -16,25 +16,23 @@ public class CheckoutCommand implements Command{
     }
     public void execute(){
         System.out.printf("Select the room for checkout operation: ");
-        while(true){
-            int userChoice = tempScanner.nextInt();
-            tempScanner.nextLine();  // Czyści znak nowej linii Enter po nextInt()
 
-            if (!tempHotel.getRoomsMap().contains(userChoice)) {
-                System.out.print("Chosen room doesnt exist, please choose different room: ");
-                continue;
-            }
-            Room chosenRoom = tempHotel.getRoomsMap().get(userChoice);
-            if (chosenRoom.getRoomRegisteredGuests().isEmpty()) {
-                System.out.print("Chosen room is empty (not booker right now), please choose different one: ");
-                continue;
-            }
-            System.out.println("-------------------------------------------------------------");
-            System.out.println("Thank You for choosing our Hotel for your travel destination!");
-            BigDecimal finalPrice = chosenRoom.signOutGuests();
-            System.out.printf("The booking final price is : %s $ %n", finalPrice.toString());
-            System.out.println("-------------------------------------------------------------");
-            break;
+        int userChoice = tempScanner.nextInt();
+        tempScanner.nextLine();  // Czyści znak nowej linii Enter po nextInt()
+
+        if (!tempHotel.getRoomsMap().contains(userChoice)) {
+            System.out.print("Chosen room doesnt exist, please choose different room.");
+            return;
         }
+        Room chosenRoom = tempHotel.getRoomsMap().get(userChoice);
+        if (chosenRoom.getRoomRegisteredGuests().isEmpty()) {
+            System.out.print("Chosen room is empty (not booker right now), please choose different one.");
+            return;
+        }
+        System.out.println("-------------------------------------------------------------");
+        System.out.println("Thank You for choosing our Hotel for your travel destination!");
+        BigDecimal finalPrice = chosenRoom.signOutGuests();
+        System.out.printf("The booking final price is : %s $ %n", finalPrice.toString());
+        System.out.println("-------------------------------------------------------------");
     }
 }

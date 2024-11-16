@@ -14,7 +14,7 @@ public class PricesCommand implements Command{
     public void execute(){
         Map<Integer, Room> tempMap = tempHotel.getRoomsMap();
         for(Integer key : tempMap.keys()){
-            System.out.printf("Room %d: %.2f $ per night %n", key, tempMap.get(key).getPricePerNight());
+            System.out.printf("Room %d: %.2f $ per night%n", key, tempMap.get(key).getPricePerNight());
         }
     }
 }
