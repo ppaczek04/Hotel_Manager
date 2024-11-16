@@ -18,37 +18,45 @@ public class CheckinCommand implements Command{
     }
 
     public void execute(){
-        System.out.print("Choose the room you want to book:");
-        while(true){
+        System.out.print("Choose the room you want to book: ");
+        while(true) {
             int userChoice = tempScanner.nextInt();
             tempScanner.nextLine();  // Czyści znak nowej linii Enter po nextInt()
 
-            if(!tempHotel.getRoomsMap().contains(userChoice)){
+            if (!tempHotel.getRoomsMap().contains(userChoice)) {
                 System.out.print("Chosen room doesnt exist, please choose different room: ");
                 continue;
             }
             Room chosenRoom = tempHotel.getRoomsMap().get(userChoice);
-            if(!chosenRoom.getRoomRegisteredGuests().isEmpty()){
+            if (!chosenRoom.getRoomRegisteredGuests().isEmpty()) {
                 System.out.print("Chosen room is currently occupied, please choose different one: ");
                 continue;
             }
-            System.out.printf("How many guests? {%d} : ",chosenRoom.getMaxGuestNumber());
+            System.out.printf("How many guests? {%d} : ", chosenRoom.getMaxGuestNumber());
             int howManyGuests = tempScanner.nextInt();
             tempScanner.nextLine();  // Czyści znak nowej linii Enter po nextInt()
-            if(howManyGuests > chosenRoom.getMaxGuestNumber()){
+            if (howManyGuests > chosenRoom.getMaxGuestNumber()) {
                 System.out.print("Sorry, this room is not big enough for that many people, please choose different one: ");
                 continue;
             }
-            for(int i = 1; i <= howManyGuests; i++){
+            System.out.printf("Please register Main guest >> %n");
+            chosenRoom.registerGuest(tempScanner);
+            for (int i = 2; i <= howManyGuests; i++) {
                 System.out.printf("Please register %d. guest >> %n", i);
                 chosenRoom.registerGuest(tempScanner);
             }
-            System.out.printf("Checkin date is set to %s %n", LocalDate.now());
-            chosenRoom.setCheckinDate(LocalDate.now());
-            System.out.print("Please set te checkout date (YYYY-MM-DD): ");
-            String checkoutDateString = tempScanner.nextLine().trim();
-            LocalDate checkoutDate = LocalDate.parse(checkoutDateString);
-            chosenRoom.setCheckoutDate(checkoutDate);
+            System.out.print("provide check-in and check-out dates (format: YYYY-MM-DD YYYY-MM-DD) or only check-out date: ");
+            String inputDates = tempScanner.nextLine().trim();
+            String[] dates = inputDates.split("\\s+");
+            if (dates.length == 2) {
+                chosenRoom.setCheckinDate(LocalDate.parse(dates[0]));
+                chosenRoom.setCheckoutDate(LocalDate.parse(dates[1]));
+            } else {
+                chosenRoom.setCheckinDate(LocalDate.now());
+                chosenRoom.setCheckoutDate(LocalDate.parse(dates[0]));
+            }
+            System.out.printf("Check-in date set to: %s%n", chosenRoom.getCheckinDate());
+            System.out.printf("Check-out date set to: %s%n", chosenRoom.getCheckoutDate());
             break;
         }
     }

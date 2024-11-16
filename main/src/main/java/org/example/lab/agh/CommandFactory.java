@@ -15,7 +15,7 @@ public class CommandFactory {
             case "checkin":
                 return new CheckinCommand(hotel, mainScanner);
             case "checkout":
-                return new CheckoutCommand(hotel);
+                return new CheckoutCommand(hotel, mainScanner);
             case "list":
                 return new ListCommand(hotel);
             case "save":

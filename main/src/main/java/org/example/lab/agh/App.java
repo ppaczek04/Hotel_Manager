@@ -21,21 +21,19 @@ public class App {
     }
 
     public void runApp(){
-        System.out.println("====Welcome to Textual Hotel Manager!====");
+        System.out.println("===============Welcome to Textual Hotel Manager!===============");
         Scanner mainScanner = new Scanner(System.in);
         CommandFactory commandFactory = new CommandFactory();
 
         while(true){
 
-            System.out.print("Choose the command {prices, view, exit}: ");
+            System.out.print("Choose the command {prices, view, checkin, checkout, list, save, exit}: ");
             String userChoice = mainScanner.nextLine().trim().toLowerCase();
             Command chosenCommand= commandFactory.getCommand(userChoice, ourHotel, mainScanner);
             chosenCommand.execute();
             if (chosenCommand instanceof ExitCommand) {break;}
 
         }
-
-
         mainScanner.close();
     }
 

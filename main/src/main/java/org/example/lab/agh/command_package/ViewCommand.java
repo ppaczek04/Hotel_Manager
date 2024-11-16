@@ -15,7 +15,7 @@ public class ViewCommand implements Command{
         this.tempScanner = scanner;
     }
     public void execute(){
-        System.out.println("Choose the room that interests you: ");
+        System.out.print("Choose the room that interests you: ");
         int userChoice = tempScanner.nextInt();
         tempScanner.nextLine();  // Czyści znak nowej linii Enter po nextInt()
         Map<Integer, Room> tempMap = tempHotel.getRoomsMap();

@@ -1,6 +1,8 @@
 package org.example.lab.agh.model_package;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -42,6 +44,19 @@ public class Room {
         this.guestCheckin(new Guest(PESEL, name, surname));
     }
 
+    public BigDecimal signOutGuests(){
+        BigDecimal priceForNight = BigDecimal.valueOf(pricePerNight);
+        long daysBetween = ChronoUnit.DAYS.between(checkinDate, checkoutDate);
+        BigDecimal numberOfDays = BigDecimal.valueOf(daysBetween);
+
+
+        roomRegisteredGuests.clear();
+        checkinDate = null;
+        checkoutDate = null;
+
+        return priceForNight.multiply(numberOfDays);
+    }
+
     public void guestCheckin(Guest guest){
         roomRegisteredGuests.add(guest);
     }
@@ -72,7 +87,7 @@ public class Room {
             System.out.println("Room AVAILABLE");
         }
         else{
-            System.out.printf("Room is occupied  till " + checkoutDate.toString() + " by: %n");
+            System.out.printf("Room is occupied  till %s by: %n", checkoutDate.toString());
             for(Guest guest : roomRegisteredGuests){
                 System.out.println(guest.toString());
             }
