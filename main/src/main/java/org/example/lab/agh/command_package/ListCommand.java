@@ -9,6 +9,9 @@ public class ListCommand implements Command{
         this.tempHotel = hotel;
     }
     public void execute(){
-        System.out.println("List command executed");
+        System.out.println("List of all rooms and their availability:");
+        for(Integer key : tempHotel.getRoomsMap().keys()){
+            tempHotel.getRoomsMap().get(key).displayInfo();
+        }
     }
 }

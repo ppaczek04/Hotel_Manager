@@ -24,15 +24,6 @@ public class Room {
         this.checkoutDate = null;
     }
 
-    public Room(int roomNumber, double price, int maxGuestNumber, List<Guest> roomRegisteredGuests) {
-        this.roomNumber = roomNumber;
-        this.pricePerNight = price;
-        this.maxGuestNumber = maxGuestNumber;
-        this.roomRegisteredGuests = roomRegisteredGuests;
-        this.checkinDate = null;
-        this.checkoutDate = null;
-    }
-
     public void registerGuest(Scanner tempScanner){
         System.out.print("Name: ");
         String name = tempScanner.nextLine();
@@ -57,6 +48,19 @@ public class Room {
         return priceForNight.multiply(numberOfDays);
     }
 
+    public void displayInfo(){
+        System.out.printf("** Room %d | %.2f $ per night | max Guests: %d ** ", roomNumber, pricePerNight, maxGuestNumber);
+        if(roomRegisteredGuests.isEmpty()){
+            System.out.println("Room AVAILABLE");
+        }
+        else{
+            System.out.printf("Room is occupied since %s till %s by: %n", checkinDate.toString(), checkoutDate.toString());
+            for(Guest guest : roomRegisteredGuests){
+                System.out.println(guest.toString());
+            }
+        }
+    }
+
     public void guestCheckin(Guest guest){
         roomRegisteredGuests.add(guest);
     }
@@ -79,19 +83,6 @@ public class Room {
 
     public void setRoomRegisteredGuests(List<Guest> roomRegisteredGuests) {
         this.roomRegisteredGuests = roomRegisteredGuests;
-    }
-
-    public void displayInfo(){
-        System.out.printf("** Room %d | %.2f $ per night | max Guests: %d ** ", roomNumber, pricePerNight, maxGuestNumber);
-        if(roomRegisteredGuests.isEmpty()){
-            System.out.println("Room AVAILABLE");
-        }
-        else{
-            System.out.printf("Room is occupied  till %s by: %n", checkoutDate.toString());
-            for(Guest guest : roomRegisteredGuests){
-                System.out.println(guest.toString());
-            }
-        }
     }
 
     public LocalDate getCheckinDate() {
