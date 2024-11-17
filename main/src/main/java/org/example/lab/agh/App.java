@@ -1,23 +1,68 @@
 package org.example.lab.agh;
 
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.example.lab.agh.command_package.Command;
 import org.example.lab.agh.command_package.ExitCommand;
 import org.example.lab.agh.command_package.PricesCommand;
 import org.example.lab.agh.model_package.Hotel;
 import org.example.lab.agh.model_package.Room;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Scanner;
 
 public class App {
     private final Hotel ourHotel;
     private final MyMap<String, PricesCommand> commandsMap = new MyMap<>();
 
-    public App(){
-        this.ourHotel = new Hotel("Podcarpatia", 5, 8);
-        ourHotel.getRoomsMap().put(101,  new Room(101, 20, 2));
-        ourHotel.getRoomsMap().put(102,  new Room(102, 22, 3));
-        ourHotel.getRoomsMap().put(103,  new Room(103, 24, 4));
-        ourHotel.getRoomsMap().put(104,  new Room(104, 26, 5));
+    public App() {
+        Hotel tempHotel = null;
+        try (InputStream fis = getClass().getClassLoader().getResourceAsStream("hotel_data.xlsx");
+             Workbook workbook = new XSSFWorkbook(fis)) {
+
+            Sheet sheet = workbook.getSheetAt(0);
+            Row hotelInfoRow = sheet.getRow(1);
+
+            String hotelName = hotelInfoRow.getCell(0).getStringCellValue();
+            int floorNumber = (int) getNumericValue(hotelInfoRow.getCell(1));
+            int roomsPerFloor = (int) getNumericValue(hotelInfoRow.getCell(2));
+
+            tempHotel = new Hotel(hotelName, floorNumber, roomsPerFloor);
+
+            for (int i = 3; i <= sheet.getLastRowNum(); i++) { // Iteracja od 1, bo wiersz 0 zawiera informacje o hotelu
+                Row roomRow = sheet.getRow(i);
+                int roomNumber = (int) getNumericValue(roomRow.getCell(0));
+                double pricePerNight = getNumericValue(roomRow.getCell(1));
+                int maxGuests = (int) getNumericValue(roomRow.getCell(2));
+
+                Room room = new Room(roomNumber, pricePerNight, maxGuests);
+                tempHotel.getRoomsMap().put(roomNumber, room);
+            }
+
+        } catch (IOException e) {
+            System.err.println("Error reading the Excel file: " + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.err.println("Data error: " + e.getMessage());
+        }
+
+        this.ourHotel = tempHotel != null ? tempHotel : new Hotel("Default Hotel", 1, 1);
+    }
+
+    // Helper method to handle numeric values or string-to-numeric conversion
+    private double getNumericValue(Cell cell) {
+        if (cell.getCellType() == CellType.NUMERIC) {
+            return cell.getNumericCellValue();
+        } else if (cell.getCellType() == CellType.STRING) {
+            try {
+                return Double.parseDouble(cell.getStringCellValue());
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("Invalid numeric value in cell: " + cell.getAddress());
+            }
+        } else {
+            throw new IllegalArgumentException("Unexpected cell type in cell: " + cell.getAddress());
+        }
     }
 
     public void runApp(){
