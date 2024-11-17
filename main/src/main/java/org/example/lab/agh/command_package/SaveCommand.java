@@ -2,6 +2,7 @@ package org.example.lab.agh.command_package;
 
 import org.example.lab.agh.model_package.Hotel;
 
+
 public class SaveCommand implements Command{
     private Hotel tempHotel;
 

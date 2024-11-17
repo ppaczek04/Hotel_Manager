@@ -8,15 +8,52 @@ import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+/**
+ * The {@code CheckinCommand} class implements the {@code Command} interface
+ * and handles the check-in process for a hotel room.
+ * <p>
+ * This class allows the user to select a room, specify the number of guests,
+ * and input check-in and check-out dates.
+ * </p>
+ */
 public class CheckinCommand implements Command{
+
+    /**
+     * The hotel in which the check-in operation is performed.
+     */
     private Hotel tempHotel;
+
+    /**
+     * The scanner used to read user input during the check-in process.
+     */
     private Scanner tempScanner;
 
+    /**
+     * Constructs a new {@code CheckinCommand} with the specified hotel and scanner.
+     *
+     * @param hotel   the hotel where the check-in process is executed
+     * @param scanner the scanner used to gather user input
+     */
     public CheckinCommand(Hotel hotel, Scanner scanner){
         this.tempHotel = hotel;
         this.tempScanner = scanner;
     }
 
+    /**
+     * Executes the check-in command, guiding the user through the room selection
+     * and guest registration process.
+     * <p>
+     * This method performs the following:
+     * <ul>
+     *     <li>Prompts the user to select a room by entering its number.</li>
+     *     <li>Validates if the selected room exists and is not occupied.</li>
+     *     <li>Asks for the number of guests and registers each guest.</li>
+     *     <li>Requests check-in and check-out dates from the user.</li>
+     * </ul>
+     * Appropriate messages are displayed if invalid inputs are provided, and the
+     * check-in is finalized by setting the room's occupancy details.
+     * </p>
+     */
     public void execute(){
         System.out.print("Choose the room you want to book: ");
 
