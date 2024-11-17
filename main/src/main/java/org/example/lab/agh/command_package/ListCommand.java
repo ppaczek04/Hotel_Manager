@@ -1,6 +1,8 @@
 package org.example.lab.agh.command_package;
 
+import org.example.lab.agh.MyMap;
 import org.example.lab.agh.model_package.Hotel;
+import org.example.lab.agh.model_package.Room;
 
 public class ListCommand implements Command{
     private Hotel tempHotel;
@@ -10,8 +12,9 @@ public class ListCommand implements Command{
     }
     public void execute(){
         System.out.println("List of all rooms and their availability:");
-        for(Integer key : tempHotel.getRoomsMap().keys()){
-            tempHotel.getRoomsMap().get(key).displayInfo();
+        MyMap<Integer, Room> roomsMap = tempHotel.getRoomsMap();
+        for(Integer key : roomsMap.keys()){
+            roomsMap.get(key).displayInfo();
         }
     }
 }
