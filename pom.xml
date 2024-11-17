@@ -56,6 +56,22 @@
         </repository>
     </repositories>
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <id>aggregate</id>
+                        <goals>
+                            <goal>aggregate</goal>
+                        </goals>
+                        <phase>site</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -92,18 +108,18 @@
                     <artifactId> sonar-maven-plugin </artifactId>
                     <version> 4.0.0.4121 </version>
                 </plugin>
+
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>3.5.0</version>
                     <executions>
                         <execution>
-                            <id>attach-javadocs</id>
-                            <phase>package</phase>
+                            <id>aggregate</id>
                             <goals>
-                                <goal>jar</goal> <!-- Tworzenie pliku JAR z dokumentacją -->
-                                <goal>javadoc</goal> <!-- Wygenerowanie dokumentacji w HTML -->
+                                <goal>aggregate</goal> <!-- Generowanie dla całego projektu -->
                             </goals>
+                            <phase>package</phase> <!-- Generuj podczas fazy package -->
                         </execution>
                     </executions>
                 </plugin>

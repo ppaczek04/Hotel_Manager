@@ -50,7 +50,7 @@ public class CheckoutCommand implements Command{
      * </ul>
      * If the room does not exist or is empty, appropriate messages are displayed, and
      * the checkout process is aborted.
-     * </p>
+     *
      */
     public void execute(){
         System.out.printf("Select the room for checkout operation: ");

@@ -13,13 +13,28 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
 
+/**
+ *
+ */
 public class App {
+    /**
+     *
+     */
     private final Hotel ourHotel;
+    /**
+     *
+     */
     private final MyMap<String, PricesCommand> commandsMap = new MyMap<>();
 
+    /**
+     *
+     */
     public App() {
         Hotel tempHotel = null;
         try (InputStream fis = getClass().getClassLoader().getResourceAsStream("hotel_data.xlsx");
+             // Plik Excel znajduje się w poprawnym miejscu w strukturze projektu, ale problem polega na sposobie jego odczytu.
+             // Gdy uruchamiasz aplikację, ścieżka src/main/resources/hotel_data.xlsx nie jest dostępna jako ścieżka systemowa w czasie wykonywania,
+             // ponieważ Maven kopiuje zawartość folderu src/main/resources do folderu target/classes podczas procesu budowania.
              Workbook workbook = new XSSFWorkbook(fis)) {
 
             Sheet sheet = workbook.getSheetAt(0);
@@ -29,16 +44,16 @@ public class App {
             int floorNumber = (int) getNumericValue(hotelInfoRow.getCell(1));
             int roomsPerFloor = (int) getNumericValue(hotelInfoRow.getCell(2));
 
-            tempHotel = new Hotel(hotelName, floorNumber, roomsPerFloor);
+            tempHotel = new Hotel(hotelName, floorNumber, roomsPerFloor); //tutaj tworzymy hotel z wczytanymi parametrami
 
-            for (int i = 3; i <= sheet.getLastRowNum(); i++) { // Iteracja od 1, bo wiersz 0 zawiera informacje o hotelu
+            for (int i = 3; i <= sheet.getLastRowNum(); i++) { // Iteracja od 3, bo tu sie zaczynaja dane o hotelu
                 Row roomRow = sheet.getRow(i);
                 int roomNumber = (int) getNumericValue(roomRow.getCell(0));
                 double pricePerNight = getNumericValue(roomRow.getCell(1));
                 int maxGuests = (int) getNumericValue(roomRow.getCell(2));
 
                 Room room = new Room(roomNumber, pricePerNight, maxGuests);
-                tempHotel.getRoomsMap().put(roomNumber, room);
+                tempHotel.getRoomsMap().put(roomNumber, room); //tutaj dodajemy kolejne pokoje z wczytanymi parametrami do hotelu
             }
 
         } catch (IOException e) {
@@ -50,6 +65,10 @@ public class App {
         this.ourHotel = tempHotel != null ? tempHotel : new Hotel("Default Hotel", 1, 1);
     }
 
+    /**
+     * @param cell gyguguy
+     * @return
+     */
     // Helper method to handle numeric values or string-to-numeric conversion
     private double getNumericValue(Cell cell) {
         if (cell.getCellType() == CellType.NUMERIC) {
@@ -65,6 +84,9 @@ public class App {
         }
     }
 
+    /**
+     *
+     */
     public void runApp(){
         System.out.println("===============Welcome to Textual Hotel Manager!===============");
         Scanner mainScanner = new Scanner(System.in);
@@ -82,6 +104,9 @@ public class App {
         mainScanner.close();
     }
 
+    /**
+     * @param args ygyugyuguygu
+     */
     public static void main(String[] args) {
         new App().runApp();
     }

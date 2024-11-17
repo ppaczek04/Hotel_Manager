@@ -52,7 +52,7 @@ public class CheckinCommand implements Command{
      * </ul>
      * Appropriate messages are displayed if invalid inputs are provided, and the
      * check-in is finalized by setting the room's occupancy details.
-     * </p>
+     *
      */
     public void execute(){
         System.out.print("Choose the room you want to book: ");

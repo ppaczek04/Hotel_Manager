@@ -48,7 +48,7 @@ public class ViewCommand implements Command{
      *     <li>If the room exists, its details are displayed.</li>
      *     <li>If the room does not exist, an appropriate message is shown.</li>
      * </ul>
-     * </p>
+     *
      */
     public void execute(){
         System.out.print("Choose the room that interests you: ");
