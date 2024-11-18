@@ -16,20 +16,19 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 /**
- *
+ * The {@code App} class serves as the main entry point for the Hotel Manager application.
+ * It initializes the hotel and loads guest data from Excel files, and provides a text-based interface
+ * for managing hotel operations.
  */
 public class App {
     /**
-     *
+     * The {@link Hotel} instance representing the hotel being managed.
      */
     private final Hotel ourHotel;
-    /**
-     *
-     */
-    private final MyMap<String, PricesCommand> commandsMap = new MyMap<>();
 
     /**
-     *
+     * Constructs the {@code App} object, initializes the hotel by reading its configuration
+     * from an Excel file, and loads any previously saved guest data.
      */
     public App() {
         Hotel tempHotel = null;
@@ -70,6 +69,10 @@ public class App {
         loadGuestData();
     }
 
+    /**
+     * Loads the guest data from the Excel file {@code guests_state.xlsx}.
+     * Populates the rooms with guests and their check-in and check-out dates.
+     */
     private void loadGuestData() {
         try (FileInputStream fis = new FileInputStream("main/src/main/resources/guests_state.xlsx");
              Workbook workbook = new XSSFWorkbook(fis)) {
@@ -106,8 +109,11 @@ public class App {
     }
 
     /**
-     * @param cell gyguguy
-     * @return
+     * Converts the cell content to a numeric value if the cell type is numeric or contains a parsable string.
+     *
+     * @param cell the {@link Cell} to read the numeric value from.
+     * @return the numeric value from the cell.
+     * @throws IllegalArgumentException if the cell contains invalid or unexpected data.
      */
     // Helper method to handle numeric values or string-to-numeric conversion
     private double getNumericValue(Cell cell) {
@@ -125,7 +131,8 @@ public class App {
     }
 
     /**
-     *
+     * Runs the text-based hotel management application, allowing the user to interact with the system.
+     * The application will continuously prompt the user for commands until the "exit" command is issued.
      */
     public void runApp(){
         System.out.println("===============Welcome to Textual Hotel Manager!===============");
@@ -145,7 +152,9 @@ public class App {
     }
 
     /**
-     * @param args ygyugyuguygu
+     * The main method, serving as the entry point for the application.
+     *
+     * @param args command-line arguments, not used in this application.
      */
     public static void main(String[] args) {
         new App().runApp();

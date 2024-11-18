@@ -53,7 +53,7 @@ public class CheckoutCommand implements Command{
      *
      */
     public void execute(){
-        System.out.printf("Select the room for checkout operation: ");
+        System.out.print("Select the room for checkout operation: ");
 
         int userChoice = tempScanner.nextInt();
         tempScanner.nextLine();  // Czyści znak nowej linii Enter po nextInt()

@@ -13,20 +13,40 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- *
+ * The {@code SaveCommand} class implements the {@link Command} interface
+ * and is responsible for saving the current state of the hotel's guests
+ * into an Excel file.
  */
 public class SaveCommand implements Command{
+    /**
+     * The hotel whose guest data will be saved.
+     */
     private Hotel tempHotel;
 
     /**
-     * @param hotel gygug
+     * Constructs a new {@code SaveCommand} with the specified hotel.
+     *
+     * @param hotel the {@link Hotel} whose guest data will be saved.
      */
     public SaveCommand(Hotel hotel) {
         this.tempHotel = hotel;
     }
 
     /**
-     * Executes the command to save the current guest state to an Excel file.
+     * Executes the command to save the current state of the hotel's guests
+     * to the Excel file {@code guests_state.xlsx}.
+     * <p>
+     * This method creates a new Excel workbook, populates it with guest data,
+     * and overwrites the existing file. Guest information includes:
+     * <ul>
+     *     <li>Room number</li>
+     *     <li>Guest name</li>
+     *     <li>Guest surname</li>
+     *     <li>Guest PESEL</li>
+     *     <li>Check-in date</li>
+     *     <li>Check-out date</li>
+     * </ul>
+     * If there are no guests, the file will be empty (no guests booked).
      */
     @Override
     public void execute() {
