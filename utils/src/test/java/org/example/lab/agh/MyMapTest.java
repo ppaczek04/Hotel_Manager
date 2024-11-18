@@ -12,7 +12,7 @@ class MyMapTest {
     void testPutNewKey() {
         MyMap<String, Integer> map = new MyMap<>();
         assertTrue(map.put("A", 1));
-        assertEquals(1, map.get("A"));
+        assertEquals(1, (int)map.get("A"));
     }
 
     @Test
@@ -20,7 +20,7 @@ class MyMapTest {
         MyMap<String, Integer> map = new MyMap<>();
         map.put("A", 1);
         assertFalse(map.put("A", 2));
-        assertEquals(2, map.get("A"));
+        assertEquals(2,(int)map.get("A"));
     }
 
     @Test
@@ -61,7 +61,7 @@ class MyMapTest {
     void testGetExistingKey() {
         MyMap<String, Integer> map = new MyMap<>();
         map.put("A", 1);
-        assertEquals(1, map.get("A"));
+        assertEquals(1, (int)map.get("A"));
     }
 
     @Test
