@@ -9,7 +9,7 @@ public class Guest {
     /**
      * The PESEL (Polish national identification number) of the guest.
      */
-    private final int PESEL;
+    private final int pesel;
 
     /**
      * The first name of the guest.
@@ -24,13 +24,13 @@ public class Guest {
     /**
      * Constructs a new Guest instance with the provided PESEL, name, and surname.
      *
-     * @param PESEL    the PESEL of the guest
+     * @param pesel    the PESEL of the guest
      * @param name     the first name of the guest
      * @param surname  the surname (last name) of the guest
      */
 
-    public Guest(int PESEL, String name, String surname) {
-        this.PESEL = PESEL;
+    public Guest(int pesel, String name, String surname) {
+        this.pesel = pesel;
         this.name = name;
         this.surname = surname;
     }
@@ -50,8 +50,8 @@ public class Guest {
      *
      * @return the PESEL of the guest
      */
-    public int getPESEL() {
-        return PESEL;
+    public int getPesel() {
+        return pesel;
     }
 
     /**

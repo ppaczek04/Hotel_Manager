@@ -1,10 +1,8 @@
 package org.example.lab.agh.command_package;
 
-import org.example.lab.agh.model_package.Guest;
 import org.example.lab.agh.model_package.Hotel;
 import org.example.lab.agh.model_package.Room;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.Scanner;
 

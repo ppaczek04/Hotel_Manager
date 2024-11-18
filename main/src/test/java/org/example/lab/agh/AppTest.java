@@ -1,20 +1,11 @@
 package org.example.lab.agh;
 
-import org.example.lab.agh.command_package.Command;
-import org.example.lab.agh.command_package.ExitCommand;
-import org.example.lab.agh.command_package.UnknownCommand;
-import org.example.lab.agh.model_package.Hotel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.*;
 
 class AppTest {
     private App app;

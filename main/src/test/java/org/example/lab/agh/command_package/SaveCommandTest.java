@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SaveCommandTest {
 
     @Test
-    public void testExecute() {
+    void testExecute() {
         // Tworzymy hotel z pokojami i zameldowanymi gośćmi
         Hotel hotel = new Hotel("Test Hotel", 1, 3);
         Room room101 = new Room(101, 200.0, 2);

@@ -6,10 +6,8 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.example.lab.agh.model_package.Room;
 
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -64,7 +62,7 @@ public class SaveCommand implements Command{
                     row.createCell(0).setCellValue(room.getRoomNumber());
                     row.createCell(1).setCellValue(guest.getName());
                     row.createCell(2).setCellValue(guest.getSurname());
-                    row.createCell(3).setCellValue(guest.getPESEL());
+                    row.createCell(3).setCellValue(guest.getPesel());
                     row.createCell(4).setCellValue(
                             room.getCheckinDate() != null ? room.getCheckinDate().toString() : "N/A"
                     );

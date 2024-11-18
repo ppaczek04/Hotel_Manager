@@ -4,7 +4,6 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.example.lab.agh.command_package.Command;
 import org.example.lab.agh.command_package.ExitCommand;
-import org.example.lab.agh.command_package.PricesCommand;
 import org.example.lab.agh.model_package.Guest;
 import org.example.lab.agh.model_package.Hotel;
 import org.example.lab.agh.model_package.Room;

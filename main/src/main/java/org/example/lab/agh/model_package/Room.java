@@ -70,9 +70,9 @@ public class Room {
         System.out.print("Surname: ");
         String surname = tempScanner.nextLine();
         System.out.print("PESEL: ");
-        int PESEL = tempScanner.nextInt();
+        int pesel = tempScanner.nextInt();
         tempScanner.nextLine();  // Czyści znak nowej linii Enter po nextInt()
-        this.guestCheckin(new Guest(PESEL, name, surname));
+        this.guestCheckin(new Guest(pesel, name, surname));
     }
 
     /**

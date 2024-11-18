@@ -17,7 +17,7 @@ class GuestTest {
         Guest guest = new Guest(expectedPESEL, expectedName, expectedSurname);
 
         // Assert
-        assertEquals(expectedPESEL, guest.getPESEL());
+        assertEquals(expectedPESEL, guest.getPesel());
         assertEquals(expectedName, guest.getName());
         assertEquals(expectedSurname, guest.getSurname());
     }

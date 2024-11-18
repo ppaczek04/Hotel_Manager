@@ -2,16 +2,13 @@ package org.example.lab.agh.command_package;
 
 import org.example.lab.agh.MyMap;
 import org.example.lab.agh.model_package.Guest;
-import org.junit.jupiter.api.Test;
 import org.example.lab.agh.model_package.Hotel;
 import org.example.lab.agh.model_package.Room;
-import org.junit.jupiter.api.BeforeEach;
-
-
 import java.time.LocalDate;
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.*;
 
 class CheckinCommandTest {
