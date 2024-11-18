@@ -5,12 +5,14 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.example.lab.agh.command_package.Command;
 import org.example.lab.agh.command_package.ExitCommand;
 import org.example.lab.agh.command_package.PricesCommand;
+import org.example.lab.agh.model_package.Guest;
 import org.example.lab.agh.model_package.Hotel;
 import org.example.lab.agh.model_package.Room;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 /**
@@ -63,6 +65,44 @@ public class App {
         }
 
         this.ourHotel = tempHotel != null ? tempHotel : new Hotel("Default Hotel", 1, 1);
+
+        // Wczytaj dane o zameldowanych gościach
+        loadGuestData();
+    }
+
+    private void loadGuestData() {
+        try (FileInputStream fis = new FileInputStream("main/src/main/resources/guests_state.xlsx");
+             Workbook workbook = new XSSFWorkbook(fis)) {
+
+            Sheet sheet = workbook.getSheetAt(0);
+
+            for (int i = 0; i <= sheet.getLastRowNum(); i++) {
+                Row row = sheet.getRow(i);
+
+                if (row != null) {
+                    int roomNumber = (int) row.getCell(0).getNumericCellValue();
+                    String guestName = row.getCell(1).getStringCellValue();
+                    String guestSurname = row.getCell(2).getStringCellValue();
+                    int guestPesel = (int) row.getCell(3).getNumericCellValue();
+                    LocalDate checkinDate = LocalDate.parse(row.getCell(4).getStringCellValue());
+                    LocalDate checkoutDate = LocalDate.parse(row.getCell(5).getStringCellValue());
+
+                    Guest guest = new Guest(guestPesel, guestName, guestSurname);
+
+                    Room room = ourHotel.getRoomsMap().get(roomNumber);
+                    if (room != null) {
+                        room.guestCheckin(guest);
+                        room.setCheckinDate(checkinDate);
+                        room.setCheckoutDate(checkoutDate);
+                    }
+                }
+            }
+
+            System.out.println("Guest data loaded successfully!");
+
+        } catch (IOException e) {
+            System.err.println("Error reading guest state: " + e.getMessage());
+        }
     }
 
     /**
