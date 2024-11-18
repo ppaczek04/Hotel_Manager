@@ -5,7 +5,6 @@ import org.example.lab.agh.model_package.Hotel;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.example.lab.agh.model_package.Room;
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
@@ -16,6 +15,7 @@ import java.util.List;
  * into an Excel file.
  */
 public class SaveCommand implements Command{
+
     /**
      * The hotel whose guest data will be saved.
      */
@@ -51,9 +51,8 @@ public class SaveCommand implements Command{
         try (Workbook workbook = new XSSFWorkbook()) {
             Sheet sheet = workbook.createSheet("Guest State");
 
-            int rowIndex = 0; // Zaczynamy od pierwszego wiersza
+            int rowIndex = 0;
 
-            // Pobierz listę kluczy (pokoi)
             List<Integer> keys = tempHotel.getRoomsMap().keys();
             for (Integer roomKey : keys) {
                 Room room = tempHotel.getRoomsMap().get(roomKey);
@@ -72,7 +71,7 @@ public class SaveCommand implements Command{
                 }
             }
 
-            // Nadpisz plik guests_state.xlsx
+            // overwrtie file to guests_state.xlsx
             try (FileOutputStream fos = new FileOutputStream("main/src/main/resources/guests_state.xlsx")) {
                 workbook.write(fos);
                 System.out.println("Guest state saved successfully!");

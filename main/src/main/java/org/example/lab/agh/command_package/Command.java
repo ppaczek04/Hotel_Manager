@@ -1,6 +1,5 @@
 package org.example.lab.agh.command_package;
 
-
 /**
  * Represents a command that can be executed.
  * <p>

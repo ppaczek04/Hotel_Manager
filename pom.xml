@@ -17,9 +17,6 @@
         <sonar.host.url>http://localhost:9000</sonar.host.url>
         <sonar.projectKey>hotelManager</sonar.projectKey>
         <sonar.token>${env.SONAR_TOKEN}</sonar.token> <!-- environmental variable-->
-        <!-- Alternatywnie: -->
-        <!-- <sonar.login>YOUR_USERNAME</sonar.login> -->
-        <!-- <sonar.password>YOUR_PASSWORD</sonar.password> -->
     </properties>
 
     <modules>

@@ -2,7 +2,6 @@ package org.example.lab.agh.command_package;
 
 import org.example.lab.agh.model_package.Hotel;
 import org.example.lab.agh.model_package.Room;
-
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -56,7 +55,7 @@ public class CheckinCommand implements Command{
         System.out.print("Choose the room you want to book: ");
 
         int userChoice = tempScanner.nextInt();
-        tempScanner.nextLine();  // Czyści znak nowej linii Enter po nextInt()
+        tempScanner.nextLine();  //takes enter button after passing int value and pressing enter
 
         if (!tempHotel.getRoomsMap().contains(userChoice)) {
             System.out.println("Chosen room doesnt exist, please choose different room.");
@@ -69,7 +68,7 @@ public class CheckinCommand implements Command{
         }
         System.out.printf("How many guests? {%d} : ", chosenRoom.getMaxGuestNumber());
         int howManyGuests = tempScanner.nextInt();
-        tempScanner.nextLine();  // Czyści znak nowej linii Enter po nextInt()
+        tempScanner.nextLine();  //takes enter button after passing int value and pressing enter
         if (howManyGuests > chosenRoom.getMaxGuestNumber()) {
             System.out.println("Sorry, this room is not big enough for that many people, please choose different one.");
             return;

@@ -7,7 +7,6 @@ import org.example.lab.agh.command_package.ExitCommand;
 import org.example.lab.agh.model_package.Guest;
 import org.example.lab.agh.model_package.Hotel;
 import org.example.lab.agh.model_package.Room;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,9 +31,6 @@ public class App {
     public App() {
         Hotel tempHotel = null;
         try (InputStream fis = getClass().getClassLoader().getResourceAsStream("hotel_data.xlsx");
-             // Plik Excel znajduje się w poprawnym miejscu w strukturze projektu, ale problem polega na sposobie jego odczytu.
-             // Gdy uruchamiasz aplikację, ścieżka src/main/resources/hotel_data.xlsx nie jest dostępna jako ścieżka systemowa w czasie wykonywania,
-             // ponieważ Maven kopiuje zawartość folderu src/main/resources do folderu target/classes podczas procesu budowania.
              Workbook workbook = new XSSFWorkbook(fis)) {
 
             Sheet sheet = workbook.getSheetAt(0);
@@ -44,16 +40,16 @@ public class App {
             int floorNumber = (int) getNumericValue(hotelInfoRow.getCell(1));
             int roomsPerFloor = (int) getNumericValue(hotelInfoRow.getCell(2));
 
-            tempHotel = new Hotel(hotelName, floorNumber, roomsPerFloor); //tutaj tworzymy hotel z wczytanymi parametrami
+            tempHotel = new Hotel(hotelName, floorNumber, roomsPerFloor);
 
-            for (int i = 3; i <= sheet.getLastRowNum(); i++) { // Iteracja od 3, bo tu sie zaczynaja dane o hotelu
+            for (int i = 3; i <= sheet.getLastRowNum(); i++) { // info about room starts form 3rd line
                 Row roomRow = sheet.getRow(i);
                 int roomNumber = (int) getNumericValue(roomRow.getCell(0));
                 double pricePerNight = getNumericValue(roomRow.getCell(1));
                 int maxGuests = (int) getNumericValue(roomRow.getCell(2));
 
                 Room room = new Room(roomNumber, pricePerNight, maxGuests);
-                tempHotel.getRoomsMap().put(roomNumber, room); //tutaj dodajemy kolejne pokoje z wczytanymi parametrami do hotelu
+                tempHotel.getRoomsMap().put(roomNumber, room);
             }
 
         } catch (IOException e) {
@@ -63,8 +59,7 @@ public class App {
         }
 
         this.ourHotel = tempHotel != null ? tempHotel : new Hotel("Default Hotel", 1, 1);
-
-        // Wczytaj dane o zameldowanych gościach
+        // guest data loading
         loadGuestData();
     }
 

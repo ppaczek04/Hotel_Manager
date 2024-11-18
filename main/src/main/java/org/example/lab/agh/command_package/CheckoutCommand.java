@@ -2,7 +2,6 @@ package org.example.lab.agh.command_package;
 
 import org.example.lab.agh.model_package.Hotel;
 import org.example.lab.agh.model_package.Room;
-
 import java.math.BigDecimal;
 import java.util.Scanner;
 
@@ -56,7 +55,7 @@ public class CheckoutCommand implements Command{
         System.out.print("Select the room for checkout operation: ");
 
         int userChoice = tempScanner.nextInt();
-        tempScanner.nextLine();  // Czyści znak nowej linii Enter po nextInt()
+        tempScanner.nextLine();  //takes enter button after passing int value and pressing enter
 
         if (!tempHotel.getRoomsMap().contains(userChoice)) {
             System.out.print("Chosen room doesnt exist, please choose different room.");

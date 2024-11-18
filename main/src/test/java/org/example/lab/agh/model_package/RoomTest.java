@@ -1,7 +1,5 @@
 package org.example.lab.agh.model_package;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.math.BigDecimal;
@@ -9,6 +7,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.*;
 
 

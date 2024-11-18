@@ -44,7 +44,7 @@ public class MyMap<K, V> implements Map<K, V> {
             return true;
         } else {
             values.set(index, value);
-            return false; // klucz juz jest w mapie, wiec podmieniono tylko przechowywana pod nim wartosc;
+            return false;
         }
     }
 

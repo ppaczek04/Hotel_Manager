@@ -1,15 +1,13 @@
 package org.example.lab.agh;
 
-import org.example.lab.agh.command_package.Command;
 import org.example.lab.agh.command_package.*;
 import org.example.lab.agh.model_package.Hotel;
+import java.util.Scanner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.Scanner;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
+
 
 class CommandFactoryTest {
     private Hotel mockHotel;

@@ -85,7 +85,6 @@ public class Room {
         long daysBetween = ChronoUnit.DAYS.between(checkinDate, checkoutDate);
         BigDecimal numberOfDays = BigDecimal.valueOf(daysBetween);
 
-
         roomRegisteredGuests.clear();
         checkinDate = null;
         checkoutDate = null;

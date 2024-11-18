@@ -22,18 +22,14 @@ class ListCommandTest {
     }
     @Test
     void execute() {
-
-        // Mockowanie pokoi
         Room room1 = mock(Room.class);
         Room room2 = mock(Room.class);
 
-        // Mockowanie mapy pokoi
         MyMap<Integer, Room> mockRoomsMap = mock(MyMap.class);
         List<Integer> tempList = new ArrayList<>();
         tempList.add(101);
         tempList.add(102);
 
-        // Podłączanie mapy do mockHotel
         when(mockHotel.getRoomsMap()).thenReturn(mockRoomsMap);
 
         when(mockRoomsMap.keys()).thenReturn(tempList);
@@ -42,14 +38,11 @@ class ListCommandTest {
 
         listCommand.execute();
 
-        verify(mockHotel).getRoomsMap(); // Upewniamy się, że metoda getRoomsMap() została wywołana
-        verify(mockRoomsMap).keys(); // Upewniamy się, że klucze zostały pobrane
-        verify(mockRoomsMap).get(101); // Pobranie pierwszego pokoju
-        verify(mockRoomsMap).get(102); // Pobranie drugiego pokoju
-        verify(room1).displayInfo(); // Wyświetlenie informacji dla pierwszego pokoju
-        verify(room2).displayInfo(); // Wyświetlenie informacji dla drugiego pokoju
-
-
-
+        verify(mockHotel).getRoomsMap();
+        verify(mockRoomsMap).keys();
+        verify(mockRoomsMap).get(101);
+        verify(mockRoomsMap).get(102);
+        verify(room1).displayInfo();
+        verify(room2).displayInfo();
     }
 }
