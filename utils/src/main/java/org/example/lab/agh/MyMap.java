@@ -53,7 +53,7 @@ public class MyMap<K, V> implements Map<K, V> {
      *
      * @param key the key to remove
      * @return {@code true} if the key was removed successfully,
-     *         {@code false} if the key did not exist in the map
+     *         mo{@code false} if the key did not exist in the map
      */
     @Override
     public boolean remove(K key) {
