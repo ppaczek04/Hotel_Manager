@@ -58,12 +58,12 @@ public class CheckoutCommand implements Command{
         tempScanner.nextLine();  //takes enter button after passing int value and pressing enter
 
         if (!tempHotel.getRoomsMap().contains(userChoice)) {
-            System.out.print("Chosen room doesnt exist, please choose different room.");
+            System.out.println("Chosen room doesnt exist, please choose different room.");
             return;
         }
         Room chosenRoom = tempHotel.getRoomsMap().get(userChoice);
         if (chosenRoom.getRoomRegisteredGuests().isEmpty()) {
-            System.out.print("Chosen room is empty (not booker right now), please choose different one.");
+            System.out.println("Chosen room is empty (not booker right now), please choose different one.");
             return;
         }
         System.out.println("-------------------------------------------------------------");
