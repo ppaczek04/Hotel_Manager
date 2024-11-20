@@ -22,6 +22,10 @@ Commands available are:
 - save - it saves current state of guests-residing-in-rooms to the Excel file, which will be loaded next time our app is run.
 - exit - closes te app (it does not include saving data about new-session guests!).
 
+# Documentation and SonarQube report:
+Project documentation is saved in: `Javadoc/target/site/apidocs/index.html` file.  
+SonarQube report in PDF format is saved in `sonar-cube/reportSonarQube.pdf` file.
+
 # Tools used
 Whole project was built using Maven Tool.
 Others tools which were used include:
