@@ -1,0 +1,13 @@
+org\example\lab\agh\command_package\PricesCommandTest.class
+org\example\lab\agh\command_package\UnknownCommandTest.class
+org\example\lab\agh\model_package\RoomTest.class
+org\example\lab\agh\command_package\SaveCommandTest.class
+org\example\lab\agh\command_package\CheckoutCommandTest.class
+org\example\lab\agh\model_package\HotelTest.class
+org\example\lab\agh\CommandFactoryTest.class
+org\example\lab\agh\command_package\CheckinCommandTest.class
+org\example\lab\agh\command_package\ExitCommandTest.class
+org\example\lab\agh\command_package\ViewCommandTest.class
+org\example\lab\agh\model_package\GuestTest.class
+org\example\lab\agh\AppTest.class
+org\example\lab\agh\command_package\ListCommandTest.class

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.example.lab.agh.AppTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.539 s - in org.example.lab.agh.AppTest

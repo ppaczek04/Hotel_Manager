@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.example.lab.agh.CommandFactoryTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.308 s - in org.example.lab.agh.CommandFactoryTest
