@@ -1,0 +1,71 @@
+@options
+@packages
+-classpath
+'C:/Users/DELL/Desktop/HotelManager/utils/target/classes;C:/Users/DELL/Desktop/HotelManager/main/target/classes;C:/Users/DELL/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar;C:/Users/DELL/.m2/repository/commons-io/commons-io/2.14.0/commons-io-2.14.0.jar;C:/Users/DELL/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar;C:/Users/DELL/.m2/repository/org/apache/commons/commons-csv/1.10.0/commons-csv-1.10.0.jar;C:/Users/DELL/.m2/repository/org/apache/poi/poi-ooxml/5.2.5/poi-ooxml-5.2.5.jar;C:/Users/DELL/.m2/repository/org/apache/poi/poi-ooxml-lite/5.2.5/poi-ooxml-lite-5.2.5.jar;C:/Users/DELL/.m2/repository/org/apache/xmlbeans/xmlbeans/5.2.0/xmlbeans-5.2.0.jar;C:/Users/DELL/.m2/repository/org/apache/commons/commons-compress/1.25.0/commons-compress-1.25.0.jar;C:/Users/DELL/.m2/repository/com/github/virtuald/curvesapi/1.08/curvesapi-1.08.jar;C:/Users/DELL/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar;C:/Users/DELL/.m2/repository/org/apache/poi/poi/5.2.5/poi-5.2.5.jar;C:/Users/DELL/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar;C:/Users/DELL/.m2/repository/com/zaxxer/SparseBitSet/1.3/SparseBitSet-1.3.jar;C:/Users/DELL/.m2/repository/org/apache/logging/log4j/log4j-api/2.20.0/log4j-api-2.20.0.jar;C:/Users/DELL/.m2/repository/org/apache/logging/log4j/log4j-core/2.20.0/log4j-core-2.20.0.jar;C:/Users/DELL/.m2/repository/org/apache/logging/log4j/log4j-slf4j-impl/2.20.0/log4j-slf4j-impl-2.20.0.jar;C:/Users/DELL/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'1.8'
+-sourcepath
+'C:/Users/DELL/Desktop/HotelManager/utils/src/main/java;C:/Users/DELL/Desktop/HotelManager/utils/target/generated-sources/annotations;C:/Users/DELL/Desktop/HotelManager/main/src/main/java;C:/Users/DELL/Desktop/HotelManager/main/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/DELL/Desktop/HotelManager/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'HotelManager - aplikacja do zarzadzania hotelem 1.0 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'C:/Users/DELL/Desktop/HotelManager/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'HotelManager - aplikacja do zarzadzania hotelem 1.0 API'
+org.example.lab.agh
+org.example.lab.agh.command_package
+org.example.lab.agh.model_package
+C:\Users\DELL\Desktop\HotelManager\utils\target\classes = 1732111237817
+C:\Users\DELL\Desktop\HotelManager\main\target\classes = 1732111238462
+C:\Users\DELL\.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar = 1730226522868
+C:\Users\DELL\.m2\repository\commons-io\commons-io\2.14.0\commons-io-2.14.0.jar = 1730273948109
+C:\Users\DELL\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar = 1722005438242
+C:\Users\DELL\.m2\repository\org\apache\commons\commons-csv\1.10.0\commons-csv-1.10.0.jar = 1731957266428
+C:\Users\DELL\.m2\repository\org\apache\poi\poi-ooxml\5.2.5\poi-ooxml-5.2.5.jar = 1730567627001
+C:\Users\DELL\.m2\repository\org\apache\poi\poi-ooxml-lite\5.2.5\poi-ooxml-lite-5.2.5.jar = 1730567627422
+C:\Users\DELL\.m2\repository\org\apache\xmlbeans\xmlbeans\5.2.0\xmlbeans-5.2.0.jar = 1730567626943
+C:\Users\DELL\.m2\repository\org\apache\commons\commons-compress\1.25.0\commons-compress-1.25.0.jar = 1724504201305
+C:\Users\DELL\.m2\repository\com\github\virtuald\curvesapi\1.08\curvesapi-1.08.jar = 1730567625840
+C:\Users\DELL\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar = 1724504202041
+C:\Users\DELL\.m2\repository\org\apache\poi\poi\5.2.5\poi-5.2.5.jar = 1730567626463
+C:\Users\DELL\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar = 1729587402485
+C:\Users\DELL\.m2\repository\com\zaxxer\SparseBitSet\1.3\SparseBitSet-1.3.jar = 1730567625752
+C:\Users\DELL\.m2\repository\org\apache\logging\log4j\log4j-api\2.20.0\log4j-api-2.20.0.jar = 1729587402605
+C:\Users\DELL\.m2\repository\org\apache\logging\log4j\log4j-core\2.20.0\log4j-core-2.20.0.jar = 1729587402745
+C:\Users\DELL\.m2\repository\org\apache\logging\log4j\log4j-slf4j-impl\2.20.0\log4j-slf4j-impl-2.20.0.jar = 1730832076936
+C:\Users\DELL\.m2\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar = 1730832076896
+C:\Users\DELL\Desktop\HotelManager\utils\src\main\java = 1732028671516
+C:\Users\DELL\Desktop\HotelManager\utils\target\generated-sources\annotations = 1732111237386
+C:\Users\DELL\Desktop\HotelManager\main\src\main\java = 1732028670365
+C:\Users\DELL\Desktop\HotelManager\main\target\generated-sources\annotations = 1732111238116
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\allclasses-index.html = 1732111251713
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\allpackages-index.html = 1732111251715
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\element-list = 1732111251595
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\help-doc.html = 1732111251740
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\index-all.html = 1732111251733
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\index.html = 1732111251697
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\jquery-ui.overrides.css = 1732111251749
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\member-search-index.js = 1732111251718
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\module-search-index.js = 1732111251716
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\overview-summary.html = 1732111251735
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\overview-tree.html = 1732111251692
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\package-search-index.js = 1732111251717
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\script.js = 1732111251743
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\search.js = 1732111251744
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\stylesheet.css = 1732111251742
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\tag-search-index.js = 1732111251719
+C:\Users\DELL\Desktop\HotelManager\target\site\apidocs\type-search-index.js = 1732111251717

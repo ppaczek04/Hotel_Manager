@@ -1,4 +1,5 @@
-Javadoc/target/
+
+git sta
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
